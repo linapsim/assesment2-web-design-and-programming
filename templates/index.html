@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="welcome-page">
+
+    <!-- TOP GRADIENT -->
+    <div class="welcome-banner">
+        <h1>CRM System</h1>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="welcome-content">
+        <p>
+            Welcome to the CRM system.<br>
+            Please login or create an account to continue.
+        </p>
+
+        <div class="welcome-buttons">
+            <a href="{{ url_for('login') }}">
+                <button class="welcome-btn login">Login</button>
+            </a>
+
+            <a href="{{ url_for('register') }}">
+                <button class="welcome-btn signup">Sign Up</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

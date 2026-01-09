@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Employee Overview{% endblock %}
+
+{% block content %}
+
+<!-- ===== TOP BAR ===== -->
+<div class="admin-header">
+    <a href="javascript:history.back()" class="back-arrow">←</a>
+
+    <div class="header-right">
+        <span>Manager 1</span>
+        <span class="avatar">👤</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<!-- ===== PAGE TITLE ===== -->
+<h1 class="employee-title">Employee<br>Overview</h1>
+
+<p class="subtitle">Top 5 Of The Last 2 Weeks</p>
+
+<!-- ===== TABLE ===== -->
+<div class="employee-table-wrapper">
+    <table class="employee-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Total Contracts</th>
+                <th>Last Contact</th>
+                <th>Active Customers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Brooks</td>
+                <td>98</td>
+                <td>1 day ago</td>
+                <td>39</td>
+            </tr>
+            <tr>
+                <td>Anna Park</td>
+                <td>86</td>
+                <td>2 days ago</td>
+                <td>32</td>
+            </tr>
+            <tr>
+                <td>Helen Potter</td>
+                <td>72</td>
+                <td>5 days ago</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>Jerry Smith</td>
+                <td>70</td>
+                <td>5 days ago</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Bella Anderson</td>
+                <td>63</td>
+                <td>13 days ago</td>
+                <td>21</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ===== BOTTOM ACTIONS ===== -->
+<div class="employee-actions">
+    <span class="export-link">Export Report</span>
+    <a href="#" class="see-all-btn">See All…</a>
+</div>
+
+{% endblock %}

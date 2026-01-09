@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Edit Clients{% endblock %}
+
+{% block content %}
+
+<!-- ===== TOP BAR  ===== -->
+<div class="admin-header">
+    <a href="javascript:history.back()" class="back-arrow">←</a>
+
+    <div class="header-right">
+        <span>Employee</span>
+        <span class="avatar">👤</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<!-- ===== PAGE TITLE ===== -->
+<h1 class="page-title">Edit<br>Clients</h1>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="edit-container">
+
+    <div class="edit-left">
+
+        {% if client %}
+        <form method="post">
+            <input type="hidden" name="client_id" value="{{ client.id }}">
+
+            <label>Full Name</label>
+            <input name="full_name" value="{{ client.full_name }}">
+
+            <label>Phone</label>
+            <input name="phone" value="{{ client.phone }}">
+
+            <label>Email</label>
+            <input name="email" value="{{ client.email }}">
+
+            <label>Status</label>
+            <select name="status">
+                <option value="Active" {% if client.status == 'Active' %}selected{% endif %}>Active</option>
+                <option value="Disabled" {% if client.status == 'Disabled' %}selected{% endif %}>Disabled</option>
+            </select>
+
+            <label>Category</label>
+            <input name="category" value="{{ client.category }}">
+
+            <!-- ===== BUTTONS (ALWAYS VISIBLE) ===== -->
+            <div class="bottom-actions">
+                <button type="submit" class="save-btn">Save</button>
+                <a href="{{ url_for('employee_dash') }}" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+        {% else %}
+            <p>Select a client to view or edit</p>
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

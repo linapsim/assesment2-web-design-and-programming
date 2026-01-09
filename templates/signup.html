@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="signup-page">
+
+    <!-- TOP BANNER -->
+    <div class="signup-banner">
+        <span class="back" onclick="history.back()">←</span>
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="signup-title">Sign Up</h1>
+
+    <!-- FORM -->
+    <div class="signup-form">
+        <form method="post">
+            <label>Full Name</label>
+            <input type="text" name="full_name" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Role</label>
+            <select name="role" required>
+                <option value="">Select role</option>
+                <option value="admin">Admin</option>
+                <option value="manager">Manager</option>
+                <option value="employee">Employee</option>
+            </select>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" required>
+
+            <button type="submit" class="signup-btn">
+                Create Account
+            </button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

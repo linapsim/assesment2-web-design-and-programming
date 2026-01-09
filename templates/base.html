@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}CRM{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= SIDE MENU OVERLAY ================= -->
+<div class="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- ================= SIDE MENU OVERLAY ================= -->
+<div class="menu-overlay" onclick="closeMenu()"></div>
+
+<!-- ================= ROLE-BASED SIDE MENU ================= -->
+<div class="side-menu" id="sideMenu">
+
+    {% if session.get('user_role') == 'admin' %}
+        <a href="{{ url_for('admin_dash') }}">Dashboard</a>
+        <a href="{{ url_for('admin_edit_users_search') }}">Edit Users</a>
+        <a href="{{ url_for('admin_add_users') }}">Add Users</a>
+        <a href="{{ url_for('admin_settings') }}">Settings</a>
+
+    {% elif session.get('user_role') == 'manager' %}
+        <a href="{{ url_for('manager_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('manager_employee') }}">Employees</a>
+        <a href="{{ url_for('manager_clients') }}">Clients</a>
+        <a href="{{ url_for('manager_settings') }}">Settings</a>
+
+
+    {% elif session.get('user_role') == 'employee' %}
+        <a href="{{ url_for('employee_dash') }}">Dashboard</a>
+        <a href="{{ url_for('employee_edit_clients') }}">Edit Clients</a>
+        <a href="{{ url_for('employee_add_clients') }}">Add Client</a>
+    {% endif %}
+
+    <hr>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<!-- ================= FLASH MESSAGES ================= -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div style="max-width:600px; margin:20px auto;">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">
+            {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div id="popup-overlay">
+    {% for category, message in messages %}
+    <div class="popup-box {{ category }}">
+        {{ message }}
+        <button onclick="closePopup()">OK</button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- ================= PAGE CONTENT ================= -->
+{% block content %}{% endblock %}
+
+<!-- ================= MENU SCRIPT ================= -->
+<script>
+function openMenu() {
+    const adminMenu = document.getElementById('sideMenu');
+    const managerMenu = document.getElementById('managerSideMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    if (adminMenu) adminMenu.classList.add('active');
+    if (managerMenu) managerMenu.classList.add('active');
+
+    overlay.classList.add('active');
+}
+
+function closeMenu() {
+    const adminMenu = document.getElementById('sideMenu');
+    const managerMenu = document.getElementById('managerSideMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    if (adminMenu) adminMenu.classList.remove('active');
+    if (managerMenu) managerMenu.classList.remove('active');
+
+    overlay.classList.remove('active');
+}
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+});
+</script>
+
+<script>
+function closePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

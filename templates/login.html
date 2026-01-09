@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login-page">
+
+    <!-- TOP BANNER -->
+    <div class="login-banner">
+        <span class="back" onclick="history.back()">←</span>
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="login-title">Log In</h1>
+
+    <!-- FORM -->
+    <div class="login-form">
+        <form method="post">
+
+            <!-- 🔒 ROLE HOLDER -->
+            <input type="hidden" name="login_role" id="login_role">
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <div class="login-buttons">
+                <button class="login-btn admin" type="submit" onclick="setRole('admin')">
+                    Admin
+                </button>
+
+                <button class="login-btn manager" type="submit" onclick="setRole('manager')">
+                    Manager
+                </button>
+
+                <button class="login-btn employee" type="submit" onclick="setRole('employee')">
+                    Employee
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- 🔑 ROLE SCRIPT -->
+<script>
+function setRole(role) {
+    document.getElementById('login_role').value = role;
+}
+</script>
+
+{% endblock %}

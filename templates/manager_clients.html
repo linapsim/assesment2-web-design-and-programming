@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Client Overview{% endblock %}
+
+{% block content %}
+
+<!-- ===== TOP BAR ===== -->
+<div class="admin-header">
+    <a href="javascript:history.back()" class="back-arrow">←</a>
+
+    <div class="header-right">
+        <span>Manager 1</span>
+        <span class="avatar">👤</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<!-- ===== PAGE TITLE ===== -->
+<h1 class="page-title">Client<br>Overview</h1>
+
+<!-- ===== TOP WIDE CARD ===== -->
+<div class="client-wide-card">
+    <h3>Clients Who Never Responded To The Last N Contacts</h3>
+    <p>Last 3 Contacts: 25</p>
+    <p>Last 5 Contacts: 14</p>
+    <p>Last 10 Contacts: 6</p>
+</div>
+
+<!-- ===== BOTTOM GRID ===== -->
+<div class="client-grid">
+
+    <!-- LEFT CARD -->
+    <div class="client-card gray">
+        <h4>Clients With No Contacts The Last N Days</h4>
+        <p>Last 30 Days: 56</p>
+        <p>Last 60 Days: 39</p>
+        <p>Last 90 Days: 12</p>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="client-card teal">
+        <h4>Total Customers In Each<br>Category The Last 30 Days</h4>
+        <p>Active: 537</p>
+        <p>Inactive: 109</p>
+        <p>Cancelled: 43</p>
+        <p>Leads: 64</p>
+    </div>
+
+</div>
+
+{% endblock %}

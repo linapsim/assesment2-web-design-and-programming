@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+<h1 class="page-title">User Overview</h1>
+
+<form method="get" class="search-bar">
+    <input type="text" name="q" placeholder="Search user..." value="{{ q }}">
+    <button type="submit">Search</button>
+</form>
+
+<table class="users-table">
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for user in users %}
+    <tr>
+        <td>{{ user.full_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.status }}</td>
+        <td class="actions">
+
+            <!-- ✏️ EDIT -->
+            <a href="{{ url_for('admin_edit_users', user_id=user.id) }}">✏️</a>
+
+            <!-- ❌ DISABLE -->
+            {% if user.status == 'active' %}
+                <a href="{{ url_for('disable_user', user_id=user.id) }}">❌</a>
+            {% else %}
+                <a href="{{ url_for('activate_user', user_id=user.id) }}">✅</a>
+            {% endif %}
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
