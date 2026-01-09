@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- ===== TOP BAR  ===== -->
+<!--  TOP BAR   -->
 <div class="admin-header">
     <a href="javascript:history.back()" class="back-arrow">←</a>
 
@@ -14,10 +14,9 @@
     </div>
 </div>
 
-<!-- ===== PAGE TITLE ===== -->
 <h1 class="page-title">Edit<br>Clients</h1>
 
-<!-- ===== MAIN LAYOUT ===== -->
+<!--  MAIN LAYOUT  -->
 <div class="edit-container">
 
     <div class="edit-left">
@@ -44,7 +43,6 @@
             <label>Category</label>
             <input name="category" value="{{ client.category }}">
 
-            <!-- ===== BUTTONS (ALWAYS VISIBLE) ===== -->
             <div class="bottom-actions">
                 <button type="submit" class="save-btn">Save</button>
                 <a href="{{ url_for('employee_dash') }}" class="cancel-btn">Cancel</a>

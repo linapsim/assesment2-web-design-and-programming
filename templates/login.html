@@ -9,14 +9,12 @@
         <span class="back" onclick="history.back()">←</span>
     </div>
 
-    <!-- TITLE -->
     <h1 class="login-title">Log In</h1>
 
     <!-- FORM -->
     <div class="login-form">
         <form method="post">
 
-            <!-- 🔒 ROLE HOLDER -->
             <input type="hidden" name="login_role" id="login_role">
 
             <label>Email</label>
@@ -43,7 +41,6 @@
 
 </div>
 
-<!-- 🔑 ROLE SCRIPT -->
 <script>
 function setRole(role) {
     document.getElementById('login_role').value = role;

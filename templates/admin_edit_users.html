@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- ===== TOP BAR ===== -->
+<!--  TOP BAR  -->
 <div class="admin-header">
     <a href="javascript:history.back()" class="back-arrow">←</a>
 
@@ -14,10 +14,10 @@
     </div>
 </div>
 
-<!-- ===== PAGE TITLE ===== -->
+<!--  PAGE TITLE  -->
 <h1 class="page-title">Add<br>User</h1>
 
-<!-- ===== FORM ===== -->
+<!--  FORM  -->
 <div class="edit-container">
 
     <form method="post" class="edit-left">
@@ -31,7 +31,6 @@
         <label>Phone</label>
         <input type="text" name="phone">
 
-        <!-- ✅ ROLE (THIS IS WHAT YOU WERE MISSING) -->
         <label>Role</label>
         <select name="role" required>
             <option value="" disabled selected>Select role</option>
@@ -43,7 +42,7 @@
         <label>Password</label>
         <input type="password" name="password" required>
 
-        <!-- ===== ACTIONS ===== -->
+        <!--  ACTIONS  -->
         <div class="bottom-actions">
             <a href="{{ url_for('admin_dash') }}" class="cancel-btn">Cancel</a>
             <button type="submit" class="save-btn">Save</button>

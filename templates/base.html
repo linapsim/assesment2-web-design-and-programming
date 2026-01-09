@@ -8,13 +8,8 @@
 
 <body>
 
-<!-- ================= SIDE MENU OVERLAY ================= -->
 <div class="menu-overlay" onclick="closeMenu()"></div>
 
-<!-- ================= SIDE MENU OVERLAY ================= -->
-<div class="menu-overlay" onclick="closeMenu()"></div>
-
-<!-- ================= ROLE-BASED SIDE MENU ================= -->
 <div class="side-menu" id="sideMenu">
 
     {% if session.get('user_role') == 'admin' %}
@@ -40,7 +35,7 @@
     <a href="{{ url_for('logout') }}">Logout</a>
 </div>
 
-<!-- ================= FLASH MESSAGES ================= -->
+<!-- FLASH MESSAGES -->
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     <div style="max-width:600px; margin:20px auto;">
@@ -66,10 +61,9 @@
 {% endif %}
 {% endwith %}
 
-<!-- ================= PAGE CONTENT ================= -->
 {% block content %}{% endblock %}
 
-<!-- ================= MENU SCRIPT ================= -->
+<!-- MENU SCRIPT -->
 <script>
 function openMenu() {
     const adminMenu = document.getElementById('sideMenu');
