@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+
+<span class="menu hamburger" onclick="openMenu()">☰</span>
+
+<!-- HEADER -->
+<div class="admin-header">
+    <div></div> <!-- EMPTY LEFT (INTENTIONALLY) -->
+
+    <div class="header-right">
+        <span>Admin 1</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+
+<h1 class="page-title">Settings</h1>
+
+<div class="settings-container">
+
+    <!-- LEFT -->
+    <div class="settings-box">
+        <h2>Profile Settings</h2>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="">
+
+        <label>Email</label>
+        <input type="email" placeholder="">
+
+        <label>New Password</label>
+        <input type="password">
+
+        <label>Confirm Password</label>
+        <input type="password">
+
+        <label>Profile Picture</label>
+        <div class="profile-row">
+            <span class="avatar">👤</span>
+            <button class="upload-btn">Upload New</button>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn cancel">Cancel</button>
+            <button class="btn save">Save</button>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="settings-box">
+        <h2>General Settings</h2>
+
+        <div class="setting-line">
+            <span>Enable Notifications</span>
+            <span class="toggle on">ON</span>
+        </div>
+
+        <div class="setting-line">
+            <span>Email Alerts</span>
+            <span class="toggle off">OFF</span>
+        </div>
+
+        <div class="setting-line">
+            <span>Allow User Registration</span>
+            <span class="toggle on">ON</span>
+        </div>
+
+        <div class="setting-line">
+            <span>Auto Logout</span>
+            <strong>15 MINS</strong>
+        </div>
+
+        <div class="setting-line">
+            <span>Theme</span>
+            <strong>LIGHT</strong>
+        </div>
+
+        <div class="setting-line">
+            <span>Language</span>
+            <strong>ENGLISH</strong>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn cancel">Cancel</button>
+            <button class="btn save">Save</button>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Add User{% endblock %}
+
+{% block content %}
+
+<!-- ===== TOP BAR ===== -->
+<div class="admin-header">
+    <a href="javascript:history.back()" class="back-arrow">←</a>
+
+    <div class="header-right">
+        <span>Admin</span>
+        <span class="avatar">👤</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<!-- ===== PAGE TITLE ===== -->
+<h1 class="page-title">Add<br>User</h1>
+
+<!-- ===== FORM ===== -->
+<div class="edit-container">
+
+    <form method="post" class="edit-left">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Phone</label>
+        <input type="text" name="phone">
+
+        <!-- ✅ ROLE (THIS IS WHAT YOU WERE MISSING) -->
+        <label>Role</label>
+        <select name="role" required>
+            <option value="" disabled selected>Select role</option>
+            <option value="admin">Admin</option>
+            <option value="manager">Manager</option>
+            <option value="employee">Employee</option>
+        </select>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <!-- ===== ACTIONS ===== -->
+        <div class="bottom-actions">
+            <a href="{{ url_for('admin_dash') }}" class="cancel-btn">Cancel</a>
+            <button type="submit" class="save-btn">Save</button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

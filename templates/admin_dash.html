@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<span class="menu hamburger" onclick="openMenu()">☰</span>
+
+<!-- HEADER -->
+<div class="admin-header">
+    <div></div> <!-- EMPTY LEFT (INTENTIONALLY) -->
+
+    <div class="header-right">
+        <span>Admin 1</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<!-- TITLE -->
+<div class="admin-title">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome back Admin 1!</p>
+</div>
+
+<!-- USER OVERVIEW -->
+<div class="overview-section">
+    <h3>User Overview</h3>
+
+    <div class="user-table">
+        <div class="table-header">
+            <span>Full Name</span>
+            <span>Email</span>
+            <span>Role</span>
+            <span>Status</span>
+            <span></span>
+        </div>
+
+        {% for user in users %}
+        <div class="table-row">
+            <span>{{ user.full_name }}</span>
+            <span>{{ user.email }}</span>
+            <span>{{ user.role }}</span>
+            <span class="{{ 'active' if user.status == 'active' else 'disabled' }}">
+                {{ user.status|capitalize }}
+            </span>
+
+<span class="row-actions">
+    <a href="{{ url_for('admin_edit_users', user_id=user['id']) }}" title="Edit">
+        ✏️
+    </a>
+
+    <a href="{{ url_for('activate_user', user_id=user['id']) }}" title="Activate">
+        ✅
+    </a>
+
+    <a href="{{ url_for('disable_user', user_id=user['id']) }}" title="Disable">
+        ❌
+    </a>
+</span>
+
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="overview-buttons">
+<a href="{{ url_for('admin_add_users') }}" class="light-btn">
+    New User ➕
+</a>
+    </div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="notifications">
+    <div class="notif-title">Notifications 🔔</div>
+    <p>Employee Nick added a new user. <span>~27 mins ago</span></p>
+    <p>Admin 3 deleted customer. <span>~42 mins ago</span></p>
+</div>
+
+{% endblock %}

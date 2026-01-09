@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Employee Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- TOP BAR -->
+<div class="admin-header">
+    <a href="javascript:history.back()" class="back-arrow">←</a>
+    <div class="header-right">
+        <span>Employee 1</span>
+        <span class="avatar">👤</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<h1 class="page-title">Employee<br>Dashboard</h1>
+
+<h2 style="width:80%; margin:20px auto;">Recent Activity</h2>
+
+<!-- TABLE + ACTIONS -->
+<div style="width:80%; margin:auto; display:flex; gap:20px; align-items:flex-start;">
+
+    <!-- TABLE -->
+    <table style="width:85%; background:#fff9c4; border-radius:8px;">
+        <tr style="background:#fff59d;">
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Last Contact</th>
+            <th>Status</th>
+        </tr>
+
+        {% for c in clients %}
+        <tr>
+            <td>{{ c.full_name }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.last_contact }}</td>
+            <td>{{ c.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- ACTION ICONS -->
+    <div style="display:flex; flex-direction:column; gap:14px; margin-top:44px;">
+{% for c in clients %}
+<div class="row-actions">
+    {% if c.status == 'Active' %}
+        <a href="{{ url_for('employee_deactivate_client', client_id=c.id) }}">❌</a>
+    {% else %}
+        <a href="{{ url_for('employee_activate_client', client_id=c.id) }}">✅</a>
+    {% endif %}
+
+<a href="{{ url_for('employee_edit_client', client_id=c.id) }}">👁️</a>
+</div>
+{% endfor %}
+
+    </div>
+
+</div>
+
+<!-- NEW CLIENT + COUNT -->
+<div style="width:80%; margin:20px auto; display:flex; justify-content:space-between; align-items:center;">
+    <a href="{{ url_for('employee_add_clients') }}" class="light-btn">
+        New Client? ➕
+    </a>
+
+    <div style="background:#1ba6a6; color:black; padding:6px 14px; border-radius:8px;">
+        clients Added: 45
+    </div>
+</div>
+
+<!-- STATS -->
+<div style="display:flex; justify-content:center; gap:30px; margin-top:30px;">
+    <div style="background:#2e7d32; color:white; padding:8px 18px; border-radius:8px;">
+        Contacts This Month: 210
+    </div>
+    <div style="background:#2e7d32; color:white; padding:8px 18px; border-radius:8px;">
+        Contacts Today: 12
+    </div>
+    <div style="background:#2e7d32; color:white; padding:8px 18px; border-radius:8px;">
+        Contacts This Week: 63
+    </div>
+</div>
+
+{% endblock %}

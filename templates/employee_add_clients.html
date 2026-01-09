@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Add Clients{% endblock %}
+
+{% block content %}
+
+<!-- ===== TOP BAR ===== -->
+<div class="admin-header">
+    <a href="javascript:history.back()" class="back-arrow">←</a>
+
+    <div class="header-right">
+        <span>Employee 1</span>
+        <span class="avatar">👤</span>
+        <span class="hamburger" onclick="openMenu()">☰</span>
+    </div>
+</div>
+
+<!-- ===== TITLE ===== -->
+<h1 class="page-title">Add Clients</h1>
+
+<!-- ===== FORM CONTAINER ===== -->
+<form method="POST" class="add-client-form">
+
+    <div class="form-row">
+        <label>Full Name:</label>
+        <input type="text" name="full_name" placeholder="ex. John Doe" required>
+    </div>
+
+    <div class="form-row">
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="ex. johnd@gmail.com">
+    </div>
+
+    <div class="form-row">
+        <label>Phone Number:</label>
+        <input type="text" name="phone" placeholder="ex. +00 1234567890">
+    </div>
+
+    <div class="form-row">
+        <label>Category:</label>
+        <select name="category" required>
+            <option value="">Choose:</option>
+            <option value="Lead">Lead</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+        </select>
+    </div>
+
+    <div class="form-row status-row">
+        <label>Status:</label>
+        <select name="status" required>
+            <option value="">Choose:</option>
+            <option value="Active">Active</option>
+            <option value="Disabled">Disabled</option>
+        </select>
+
+        <!-- BUTTONS INLINE WITH STATUS -->
+        <div class="form-actions">
+            <a href="{{ url_for('employee_dash') }}" class="cancel-btn">Cancel</a>
+            <button type="submit" class="save-btn">Save</button>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}
