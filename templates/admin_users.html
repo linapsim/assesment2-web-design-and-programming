@@ -27,10 +27,8 @@
         <td>{{ user.status }}</td>
         <td class="actions">
 
-            <!-- ✏️ EDIT -->
             <a href="{{ url_for('admin_edit_users', user_id=user.id) }}">✏️</a>
 
-            <!-- ❌ DISABLE -->
             {% if user.status == 'active' %}
                 <a href="{{ url_for('disable_user', user_id=user.id) }}">❌</a>
             {% else %}

@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- ===== TOP BAR ===== -->
+<!--  TOP BAR  -->
 <div class="admin-header">
     <a href="javascript:history.back()" class="back-arrow">←</a>
 
@@ -14,10 +14,9 @@
     </div>
 </div>
 
-<!-- ===== TITLE ===== -->
 <h1 class="page-title">Add Clients</h1>
 
-<!-- ===== FORM CONTAINER ===== -->
+<!-- FORM-->
 <form method="POST" class="add-client-form">
 
     <div class="form-row">
@@ -53,7 +52,6 @@
             <option value="Disabled">Disabled</option>
         </select>
 
-        <!-- BUTTONS INLINE WITH STATUS -->
         <div class="form-actions">
             <a href="{{ url_for('employee_dash') }}" class="cancel-btn">Cancel</a>
             <button type="submit" class="save-btn">Save</button>
